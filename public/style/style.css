@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "content sidebar"
+        "footer footer";
+    height: 100vh;
+    gap: 20px;
+}
+
+header {
+    grid-area: header;
+    text-align: center;
+}
+
+main {
+    grid-area: content;
+}
+
+aside {
+    grid-area: sidebar;
+}
+
+footer {
+    grid-area: footer;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+}
+
+body {
+    background: #fff;
+    position: relative;
+}
+
+.triangle {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    background: linear-gradient(to top left, blue 50%, transparent 50%);
+    margin: 0;
+    z-index: -1;
+}
+
+.content {
+    background-color: #ccc;
+    padding: 20px;
+}
+
+p {
+    margin: 10px 0;
+}
+
+.button {
+    display: block;
+    padding: 5px 10px;
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "content"
+            "footer";
+    }
+
+    aside {
+        height: auto;
+    }
+
+    main {
+        font-size: 16px;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 5px;
+        margin: 0 5px 5px 0;
+    }
+}

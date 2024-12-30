@@ -1,0 +1,8 @@
+# Schakel de mod_rewrite engine in
+RewriteEngine On
+
+# Zorg ervoor dat verborgen bestanden niet toegankelijk zijn
+RewriteRule ^\. - [F]
+
+# Herleid alle verzoeken naar /api/* naar /api/index.php
+RewriteRule ^(.*)$ index.php [QSA,L]
